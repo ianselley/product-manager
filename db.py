@@ -5,8 +5,11 @@ from sqlalchemy.ext.declarative import declarative_base
 
 # El engine permite a SQLAlchemy comunicarse con la base de datos
 # https://docs.sqlalchemy.org/en/14/core/engines.html
+
+db_path = "products.db"
+
 engine = create_engine(
-    "sqlite:///database/products.db", connect_args={"check_same_thread": False}
+    f"sqlite:///{db_path}", connect_args={"check_same_thread": False}
 )
 
 if not database_exists(engine.url):

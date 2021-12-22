@@ -27,7 +27,7 @@ def clean_table(table: ttk.Treeview):
 def populate_table(table: ttk.Treeview):
     products = models.get_products()
     for product in products:
-        # I save the id of the product in the "tags" attribute so when I want to accrss the product, I can get its id
+        # I save the id of the product in the "tags" attribute so when I want to access the product, I can get its id
         table.insert(
             "",
             0,
