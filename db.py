@@ -1,3 +1,4 @@
+from sqlalchemy_utils import database_exists, create_database
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
@@ -7,6 +8,10 @@ from sqlalchemy.ext.declarative import declarative_base
 engine = create_engine(
     "sqlite:///database/products.db", connect_args={"check_same_thread": False}
 )
+
+if not database_exists(engine.url):
+    create_database(engine.url)
+
 # Advertencia: Crear el engine no conecta inmediatamente a la base de datos, eso lo hacemos más adelante
 
 # Ahora creamos la sesión, lo que nos permite realizar transacciones (operaciones) dentro de nuestra BD

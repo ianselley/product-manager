@@ -3,7 +3,6 @@ import models
 import db
 
 
-db_route = "database/products.db"
 db.Base.metadata.create_all(db.engine)
 
 root = Tk()
